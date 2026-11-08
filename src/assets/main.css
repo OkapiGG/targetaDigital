@@ -349,9 +349,7 @@ h2 {
   display: flex;
   justify-content: center;
   padding: 22px 24px 64px;
-  background:
-    radial-gradient(120% 90% at 100% 0%, #ff4d1255, transparent 60%),
-    var(--navy);
+  background: radial-gradient(120% 90% at 100% 0%, #ff4d1255, transparent 60%), var(--navy);
 }
 .credential-header .brand {
   color: #fff;
