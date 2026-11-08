@@ -194,8 +194,10 @@ h2 {
 }
 /* Safari alinea la fecha arriba y con margen propio */
 .form-input[type='date'] {
-  display: flex;
-  align-items: center;
+  height: auto;
+  min-height: 48px;
+  padding-block: 13px;
+  line-height: 20px;
 }
 .form-input[type='date']::-webkit-date-and-time-value {
   margin: 0;
@@ -203,7 +205,6 @@ h2 {
 }
 .form-input[type='date']::-webkit-datetime-edit {
   padding: 0;
-  line-height: 1;
 }
 .form-input[readonly] {
   background: #f8fafc;
