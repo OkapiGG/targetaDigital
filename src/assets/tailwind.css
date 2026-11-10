@@ -1,0 +1,18 @@
+@layer theme, sakai, primevue, utilities;
+
+/* Se omite Preflight para conservar el diseño existente. */
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+
+@plugin 'tailwindcss-primeui';
+
+@custom-variant dark (&:where(.app-dark, .app-dark *));
+
+@theme {
+  --breakpoint-*: initial;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-2xl: 1920px;
+}

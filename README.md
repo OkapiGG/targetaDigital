@@ -1,42 +1,42 @@
-# .
+# RHINACRED · Tarjeta digital de empleado
 
-This template should help get you started developing with Vue 3 in Vite.
+Aplicación Vue 3 + TypeScript basada en la plantilla UI **Sakai de PrimeVue**,
+personalizada con el diseño de RHINACRED.
 
-## Recommended IDE Setup
+La pantalla conserva el formulario del colaborador, el cálculo de RFC, la
+previsualización de fotografía, el código de barras CODE128 y la impresión de la
+tarjeta.
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Recommended Browser Setup
-
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
+## Ejecutar
 
 ```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
+npm ci
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+## Verificar y compilar
 
 ```sh
 npm run build
 ```
+
+Este comando ejecuta la comprobación de TypeScript y la compilación para producción.
+
+## Estructura
+
+- `src/layout/`: layout y encabezado adaptados de Sakai.
+- `src/router/`: enrutador con la vista de credenciales.
+- `src/views/CredentialView.vue`: formulario y tarjeta digital.
+- `src/assets/layout/`: estilos SCSS oficiales de Sakai.
+- `src/themes/rhinacred.ts`: tema Aura personalizado.
+- `src/utils/rfc.ts`: cálculo de RFC existente.
+
+Consulta [la documentación de la integración de Sakai](docs/SAKAI.md) para conocer
+las fuentes oficiales, versiones, adaptaciones y licencia.
+
+## GitHub Pages
+
+Se conserva la ruta base `/targetaDigital/`. El enrutador usa URLs con `#/` para
+permitir recargar la aplicación en GitHub Pages.
+
+El comando existente `npm run deploy` compila y publica `dist/` mediante `gh-pages`.

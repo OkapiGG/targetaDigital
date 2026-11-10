@@ -57,6 +57,48 @@ p {
   padding-inline: var(--gutter);
 }
 
+/* Sakai: distribución sin sidebar para conservar la pantalla de credenciales. */
+.credential-layout {
+  min-height: 100dvh;
+}
+.credential-layout .layout-topbar {
+  position: static;
+  display: block;
+  height: auto;
+  padding: 0;
+  z-index: auto;
+}
+.credential-layout .layout-main-container {
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+}
+.credential-layout .layout-main {
+  width: auto;
+  margin: 0;
+  padding: 0;
+}
+
+/* Mantener las métricas originales sobre la tipografía base de Sakai. */
+body {
+  font-family: inherit;
+  color: inherit;
+  line-height: normal;
+}
+button,
+input,
+select {
+  line-height: normal;
+}
+p {
+  line-height: normal;
+}
+h1,
+h2,
+h3 {
+  font-family: var(--display);
+}
+
 /* Encabezado */
 .site-header {
   background: #fff;
@@ -513,6 +555,18 @@ h2 {
   @page {
     size: A4;
     margin: 16mm;
+  }
+  html,
+  body,
+  .credential-layout {
+    height: auto;
+    min-height: 0;
+  }
+  .credential-layout .layout-topbar {
+    display: none;
+  }
+  .credential-layout .layout-main-container {
+    display: block;
   }
   body {
     background: #fff;

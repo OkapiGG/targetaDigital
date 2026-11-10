@@ -1,0 +1,6 @@
+@use 'sass:meta';
+
+// Los estilos oficiales de Sakai quedan debajo de la personalización de RHINACRED.
+@layer sakai {
+  @include meta.load-css('./layout/layout.scss');
+}
