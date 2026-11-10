@@ -1,10 +1,11 @@
 <script setup lang="ts">
-// Estructura de Sakai adaptada a la pantalla de credenciales, sin navegación lateral.
+// Estructura de Sakai con menú lateral para la tarjeta digital y el punto de venta.
 import { computed } from 'vue'
 import { useLayout } from '@/layout/composables/layout'
+import AppMenu from './AppMenu.vue'
 import AppTopbar from './AppTopbar.vue'
 
-const { layoutConfig, layoutState } = useLayout()
+const { layoutConfig, layoutState, hideMobileMenu } = useLayout()
 
 const containerClass = computed(() => ({
   'layout-overlay': layoutConfig.menuMode === 'overlay',
@@ -16,12 +17,16 @@ const containerClass = computed(() => ({
 </script>
 
 <template>
-  <div class="layout-wrapper credential-layout" :class="containerClass">
+  <div class="layout-wrapper app-layout" :class="containerClass">
     <AppTopbar />
+    <div class="layout-sidebar">
+      <AppMenu />
+    </div>
     <div class="layout-main-container">
       <div class="layout-main">
         <RouterView />
       </div>
     </div>
+    <div class="layout-mask" @click="hideMobileMenu"></div>
   </div>
 </template>

@@ -57,26 +57,16 @@ p {
   padding-inline: var(--gutter);
 }
 
-/* Sakai: distribución sin sidebar para conservar la pantalla de credenciales. */
-.credential-layout {
-  min-height: 100dvh;
+/* Sakai: cada vista define su propio margen superior bajo el topbar fijo. */
+.app-layout .layout-main-container {
+  padding-top: 4rem;
 }
-.credential-layout .layout-topbar {
-  position: static;
-  display: block;
-  height: auto;
-  padding: 0;
-  z-index: auto;
+.layout-menu-button {
+  border: 0;
+  background: transparent;
 }
-.credential-layout .layout-main-container {
-  min-height: 0;
-  margin: 0;
-  padding: 0;
-}
-.credential-layout .layout-main {
-  width: auto;
-  margin: 0;
-  padding: 0;
+.layout-menu-button:hover {
+  background: var(--surface-hover);
 }
 
 /* Mantener las métricas originales sobre la tipografía base de Sakai. */
@@ -103,11 +93,6 @@ h3 {
 .site-header {
   background: #fff;
   border-bottom: 1px solid var(--border);
-}
-.header-inner {
-  display: flex;
-  align-items: center;
-  height: 68px;
 }
 .brand {
   display: inline-flex;
@@ -528,9 +513,6 @@ h2 {
 
 /* Teléfono: campos en una sola columna */
 @media (max-width: 560px) {
-  .header-inner {
-    height: 60px;
-  }
   .brand-name {
     font-size: 22px;
   }
@@ -558,15 +540,19 @@ h2 {
   }
   html,
   body,
-  .credential-layout {
+  .app-layout {
     height: auto;
     min-height: 0;
   }
-  .credential-layout .layout-topbar {
+  .app-layout .layout-topbar,
+  .app-layout .layout-sidebar,
+  .app-layout .layout-mask {
     display: none;
   }
-  .credential-layout .layout-main-container {
+  .app-layout .layout-main-container {
     display: block;
+    margin: 0;
+    padding: 0;
   }
   body {
     background: #fff;

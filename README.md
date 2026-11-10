@@ -1,11 +1,14 @@
-# RHINACRED · Tarjeta digital de empleado
+# RHINACRED · Tarjeta digital y punto de venta
 
 Aplicación Vue 3 + TypeScript basada en la plantilla UI **Sakai de PrimeVue**,
-personalizada con el diseño de RHINACRED.
+personalizada con el diseño de RHINACRED. El menú lateral de Sakai da acceso a
+dos módulos:
 
-La pantalla conserva el formulario del colaborador, el cálculo de RFC, la
-previsualización de fotografía, el código de barras CODE128 y la impresión de la
-tarjeta.
+- **Tarjeta digital** (`#/`): formulario del colaborador, cálculo de RFC,
+  previsualización de fotografía, código de barras CODE128 e impresión de la
+  tarjeta.
+- **Punto de venta** (`#/pos`): registro, edición y eliminación de productos en
+  un `DataTable` con el Subtotal, el IVA (16 %) y el Total a pagar.
 
 ## Ejecutar
 
@@ -24,9 +27,10 @@ Este comando ejecuta la comprobación de TypeScript y la compilación para produ
 
 ## Estructura
 
-- `src/layout/`: layout y encabezado adaptados de Sakai.
-- `src/router/`: enrutador con la vista de credenciales.
+- `src/layout/`: layout, encabezado y menú lateral adaptados de Sakai.
+- `src/router/`: enrutador con las vistas de ambos módulos.
 - `src/views/CredentialView.vue`: formulario y tarjeta digital.
+- `src/views/PosView.vue`: punto de venta.
 - `src/assets/layout/`: estilos SCSS oficiales de Sakai.
 - `src/themes/rhinacred.ts`: tema Aura personalizado.
 - `src/utils/rfc.ts`: cálculo de RFC existente.

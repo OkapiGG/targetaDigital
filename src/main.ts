@@ -1,6 +1,8 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import PrimeVue from 'primevue/config'
+import ConfirmationService from 'primevue/confirmationservice'
+import ToastService from 'primevue/toastservice'
 import router from './router'
 import Rhinacred from './themes/rhinacred'
 import './assets/tailwind.css'
@@ -23,5 +25,7 @@ app.use(PrimeVue, {
     },
   },
 })
+app.use(ToastService)
+app.use(ConfirmationService)
 
 app.mount('#app')

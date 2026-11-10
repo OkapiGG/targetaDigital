@@ -13,6 +13,11 @@ export default createRouter({
           name: 'credential',
           component: () => import('@/views/CredentialView.vue'),
         },
+        {
+          path: 'pos',
+          name: 'pos',
+          component: () => import('@/views/PosView.vue'),
+        },
       ],
     },
     { path: '/:pathMatch(.*)*', redirect: '/' },

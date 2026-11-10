@@ -2,7 +2,7 @@
 
 RHINACRED usa la base de la plantilla UI **Sakai de PrimeVue**, adaptada para
 conservar la pantalla de credenciales existente y sus funciones de RFC, fotografía,
-código de barras e impresión.
+código de barras e impresión, junto con el punto de venta.
 
 ## Fuentes oficiales
 
@@ -18,26 +18,32 @@ código de barras e impresión.
 | Archivo                            | Función                                                                                 |
 | ---------------------------------- | --------------------------------------------------------------------------------------- |
 | `src/App.vue`                      | Punto de entrada con `RouterView`, como en Sakai.                                       |
-| `src/router/index.ts`              | Ruta hija de `AppLayout` que carga la vista de credenciales.                            |
+| `src/router/index.ts`              | Rutas hijas de `AppLayout`: credenciales (`/`) y punto de venta (`/pos`).               |
 | `src/layout/AppLayout.vue`         | Estructura de Sakai: `layout-wrapper`, topbar, `layout-main-container` y `layout-main`. |
-| `src/layout/AppTopbar.vue`         | Encabezado personalizado con la marca RHINACRED.                                        |
+| `src/layout/AppTopbar.vue`         | Encabezado personalizado con la marca RHINACRED y el botón del menú.                    |
+| `src/layout/AppMenu.vue`           | Menú lateral con las clases `layout-menu` de Sakai.                                     |
 | `src/layout/composables/layout.ts` | Configuración reactiva de layout adaptada del composable de Sakai a TypeScript.         |
 | `src/assets/layout/`               | SCSS oficial de Sakai, copiado sin modificaciones.                                      |
 | `src/assets/styles.scss`           | Compila los estilos de layout en la capa CSS `sakai`.                                   |
 | `src/assets/tailwind.css`          | Tailwind 4 con `tailwindcss-primeui` y los puntos de corte de Sakai.                    |
 | `src/themes/rhinacred.ts`          | Preset basado en Aura con la paleta naranja del proyecto.                               |
 | `src/views/CredentialView.vue`     | Pantalla original, ahora como vista dentro de la plantilla.                             |
+| `src/views/PosView.vue`            | Punto de venta migrado del proyecto `puntoVentas` a TypeScript.                         |
 | `src/assets/main.css`              | Personalización visual de RHINACRED sobre la base de Sakai.                             |
 
 ## Adaptaciones
 
-Se mantiene el layout sin menú lateral y sin footer de demostración para respetar
-el diseño solicitado. No se incluyen dashboards, datos ficticios de productos ni
-páginas de ejemplo que no forman parte de la actividad.
+Se usa el menú lateral estático de Sakai para cambiar entre la tarjeta digital y el
+punto de venta; no se incluye el footer de demostración. No se incluyen dashboards
+ni páginas de ejemplo que no forman parte de la actividad.
 
-Los campos y botones PrimeVue usan el tema Aura personalizado. Los estilos propios
-tienen prioridad sobre las capas `sakai` y `primevue`. Tailwind se integra sin su
-reinicio global Preflight para conservar las medidas y estilos existentes.
+Los campos y botones PrimeVue usan el tema Aura personalizado. El punto de venta
+adopta la paleta naranja y las tipografías del proyecto en lugar del índigo y las
+fuentes Inter y JetBrains Mono originales.
+
+Los estilos propios tienen prioridad sobre las capas `sakai` y `primevue`. Tailwind
+se integra sin su reinicio global Preflight para conservar las medidas y estilos
+existentes.
 
 Se conserva Vue 3, TypeScript, Vite y las dependencias originales del cálculo de RFC
 y del código de barras. No se reemplaza la lógica de `src/utils/rfc.ts`.
